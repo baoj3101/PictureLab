@@ -73,27 +73,38 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		graphToBack.drawString("StarFighter ", 25, 50 );
 		graphToBack.setColor(Color.BLACK);
 		graphToBack.fillRect(0,0,800,600);
-
-		if(keys[0] == true)
-		{
-                    ship.move("LEFT");
-		}
-                if(keys[1] == true)
-		{
-                    ship.move("RIGHT");
-		}
-                if(keys[2] == true)
-		{
-                    ship.move("UP");
-		}
-                if(keys[3] == true)
-		{
-                    ship.move("DOWN");
-		}
-                if(keys[4] == true)
-		{
-                    b.move("UP");
-		}
+                
+                if (ship.getX() > 0)
+                    if(keys[0] == true)
+                    {
+                        ship.move("LEFT");
+                    }
+               
+                if (ship.getX() < 740)
+                    if(keys[1] == true)
+                    {
+                        ship.move("RIGHT");
+                    }
+                
+                if (ship.getY() > 0)
+                    if(keys[2] == true)
+                    {
+                        ship.move("UP");
+                    }
+                
+                if (ship.getY() < 510)
+                    if(keys[3] == true)
+                    {
+                        ship.move("DOWN");
+                    }
+                
+                    if(keys[4] == true)
+                    {
+                        b.add(new Ammo(ship.getX() + 20, ship.getY()));
+                        keys[4] = false;
+                    }
+                
+                b.moveEmAll();
 
 		//add code to move Ship, Alien, etc.
 
@@ -102,6 +113,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
                 ship.draw(graphToBack);
                 alienOne.draw(graphToBack);
                 alienTwo.draw(graphToBack);
+                b.drawEmAll(graphToBack);
 		twoDGraph.drawImage(back, null, 0, 0);
 	}
 

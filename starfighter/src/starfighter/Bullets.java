@@ -37,6 +37,7 @@ public class Bullets
 	public void moveEmAll()
 	{
             for (Ammo a : ammo) {
+                a.setSpeed(3);
                 a.move("UP");
             }
 	}
