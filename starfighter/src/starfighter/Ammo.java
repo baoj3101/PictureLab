@@ -1,5 +1,4 @@
-package starfighter;
-
+package Starfighter;
 //(c) A+ Computer Science
 //www.apluscompsci.com
 //Name -
@@ -16,23 +15,23 @@ public class Ammo extends MovingThing
 
 	public Ammo()
 	{
-            this(0,0,0);
+		this(0,0,0);
 	}
 
 	public Ammo(int x, int y)
 	{
-            super(x, y);
+		super(x, y);
 	}
 
 	public Ammo(int x, int y, int s)
 	{
-            super(x, y);
-            speed = s;
+		super(x, y);
+		speed = s;
 	}
 
 	public void setSpeed(int s)
 	{
-	   speed = s;
+		speed = s;
 	}
 
 	public int getSpeed()
@@ -42,19 +41,21 @@ public class Ammo extends MovingThing
 
 	public void draw( Graphics window )
 	{
-            window.setColor(Color.YELLOW);
-            window.drawOval(getX(), getY() , 7, 15);
+		window.setColor(Color.GREEN);
+		window.fillRect(getX(), getY(), 10, 10);
 	}
 	
 	
 	public void move( String direction )
 	{
-            if (direction.equals("UP"))
-            super.setY(super.getY() - getSpeed());
+		if (direction.equals("UP"))
+		{
+			setY(getY() - getSpeed());
+		}
 	}
 
 	public String toString()
 	{
-		return "";
+		return super.toString() + getSpeed();
 	}
 }
